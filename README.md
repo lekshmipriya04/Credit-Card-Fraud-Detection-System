@@ -21,7 +21,7 @@ This project aims to build a robust Binary Classification System to identify fra
 The final XGBoost model has been deployed as an interactive web application. 
 **Access the live application here:** [Credit Card Fraud Detector App](https://credit-card-fraud-detection-system-hyyu5xm7adgwjhhweyg8gt.streamlit.app/)
 
-![Streamlit UI](images/streamlit_ui.jpeg) 
+![Streamlit UI](streamlit_ui.jpeg) 
 *(Caption: Live prediction interface handling user input gracefully.)*
 
 ---
@@ -56,17 +56,17 @@ We successfully implemented all 10 stages of the Data Science Project Life Cycle
 ### 1. The Challenge: Extreme Class Imbalance
 Initial exploration revealed a severe class imbalance. As shown in the logarithmic plot below, fraudulent transactions make up only **0.17%** of the dataset. This visual evidence confirmed that standard accuracy would be a misleading metric, making SMOTE and AUPRC evaluation strictly necessary.
 
-![Class Imbalance](images/class_imbalance.jpeg)
+![Class Imbalance](class_imbalance.jpeg)
 
 ### 2. Feature Correlation Matrix
 The correlation matrix reveals how specific PCA features (V1 - V28) relate to the target class, guiding our feature selection process.
 
-![Correlation Matrix](images/correlation_matrix.jpeg)
+![Correlation Matrix](correlation_matrix.jpeg)
 
 ### 3. Model Performance (Precision-Recall)
 Because of the imbalanced data, AUPRC (Area Under the Precision-Recall Curve) was our primary metric. **XGBoost (trained with SMOTE)** outperformed both Cost-Sensitive Decision Trees and Neural Networks, achieving an Average Precision (AP) of **0.78**.
 
-![Precision-Recall Curve](images/pr_curve.jpeg)
+![Precision-Recall Curve](pr_curve.jpeg)
 
 ### 4. Confusion Matrix (XGBoost)
 The model successfully prioritized recall, catching the vast majority of fraud cases while keeping false positives manageable. 
@@ -74,12 +74,12 @@ The model successfully prioritized recall, catching the vast majority of fraud c
 * **True Positives:** 89 (Fraud Caught)
 * **False Negatives:** Only 9 (Missed Fraud)
 
-![Confusion Matrix](images/confusion_matrix.jpeg)
+![Confusion Matrix](confusion_matrix.jpeg)
 
 ### 5. Model Interpretability (Top Fraud Indicators)
 To ensure the model is not a "black box," we extracted the top 10 fraud indicators. Feature **V4** was identified as the most critical variable in determining fraudulent behavior, followed by V14 and V10.
 
-![Feature Importance](images/feature_importance.jpeg)
+![Feature Importance](feature_importance.jpeg)
 
 ---
 
