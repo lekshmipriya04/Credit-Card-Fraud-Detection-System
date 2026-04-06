@@ -4,8 +4,8 @@
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://credit-card-fraud-detection-system-hyyu5xm7adgwjhhweyg8gt.streamlit.app/)
 
 ### 👥 Team Members
-* **Member 1:** Lead Machine Learning Engineer (Model Building, SMOTE, Neural Networks)
-* **Member 2:** Data Analyst (EDA, Preprocessing, Feature Engineering)
+* **Member 1:** Data Analyst (EDA, Preprocessing, Feature Engineering)
+* **Member 2:** Lead Machine Learning Engineer (Model Building, SMOTE, Neural Networks)
 * **Member 3:** DevOps & Interpretation (Streamlit Deployment, SHAP Analysis, Documentation)
 
 ---
