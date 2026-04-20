@@ -1,63 +1,72 @@
-import streamlit as st
-import pandas as pd
-import joblib
+import pickle
+from pathlib import Path
+
 import numpy as np
+import streamlit as st
 
-# Set page configuration
-st.set_page_config(page_title="Fraud Detector App", page_icon="🛡️", layout="centered")
 
-st.title("🛡️ Credit Card Fraud Detection System")
-st.markdown("""
-This application uses a Machine Learning model (XGBoost) trained with SMOTE to detect fraudulent credit card transactions.
-""")
+st.set_page_config(page_title="Credit Card Fraud Detection", page_icon="💳", layout="wide")
 
-# Load the model
-@st.cache_resource # This makes the app run faster by caching the model
+BASE_DIR = Path(__file__).resolve().parent
+MODEL_PATH = BASE_DIR / "neural_network_model.pkl"
+
+# Model was trained on:
+# ['scaled_amount', 'scaled_time', 'V1', ..., 'V28']
+FEATURE_ORDER = ["scaled_amount", "scaled_time"] + [f"V{i}" for i in range(1, 29)]
+
+
+@st.cache_resource
 def load_model():
-    return joblib.load('fraud_model.pkl')
+    with MODEL_PATH.open("rb") as f:
+        return pickle.load(f)
 
-try:
+
+def main():
+    st.title("Credit Card Fraud Detection")
+    st.caption("Using best model: Neural Network (MLP) from pickle file")
+
+    if not MODEL_PATH.exists():
+        st.error("neural_network_model.pkl not found in the same folder as this app.")
+        st.stop()
+
     model = load_model()
-    st.success("✅ Model loaded successfully!")
-except FileNotFoundError:
-    st.error("❌ Model file not found. Please ensure 'fraud_model.pkl' is in the directory.")
-    st.stop()
 
-st.divider()
+    st.info(
+        "Enter feature values and click Predict. "
+        "Important: Use scaled_amount and scaled_time values (same preprocessing as training)."
+    )
 
-st.subheader("Enter Transaction Details")
-st.write("Input the key transaction features below to test the model.")
+    threshold = st.slider(
+        "Fraud decision threshold",
+        min_value=0.0,
+        max_value=1.0,
+        value=0.50,
+        step=0.01
+    )
 
-# Create input fields for the user
-col1, col2 = st.columns(2)
+    st.subheader("Input Features")
+    inputs = {}
+    cols = st.columns(3)
 
-with col1:
-    amount = st.number_input("Transaction Amount ($)", min_value=0.0, value=150.0)
-    v1 = st.number_input("Feature V1", value=0.0)
-    v2 = st.number_input("Feature V2", value=0.0)
+    for i, feature in enumerate(FEATURE_ORDER):
+        with cols[i % 3]:
+            inputs[feature] = st.number_input(feature, value=0.0, format="%.6f")
 
-with col2:
-    time = st.number_input("Time (Seconds from first transaction)", min_value=0, value=3600)
-    v3 = st.number_input("Feature V3", value=0.0)
-    v4 = st.number_input("Feature V4", value=0.0)
+    if st.button("Predict", type="primary"):
+        x_input = np.array([[inputs[f] for f in FEATURE_ORDER]], dtype=float)
 
-# Prediction Logic
-if st.button("🔍 Analyze Transaction", use_container_width=True):
-    
-    # The model expects exactly 30 features (scaled_amount, scaled_time, V1-V28).
-    # We take the user's inputs and fill the remaining 24 PCA features with 0.0 (the mean).
-    input_features = [amount, time, v1, v2, v3, v4] + [0.0] * 24
-    
-    # Reshape for the model
-    input_array = np.array(input_features).reshape(1, -1)
-    
-    # Predict
-    prediction = model.predict(input_array)
-    
-    st.divider()
-    if prediction[0] == 1:
-        st.error("### ⚠️ WARNING: FRAUDULENT TRANSACTION DETECTED")
-        st.write("This transaction matches the patterns of known credit card fraud.")
-    else:
-        st.success("### ✅ TRANSACTION APPROVED")
-        st.write("This transaction appears legitimate based on our data.")
+        fraud_prob = float(model.predict_proba(x_input)[0][1])
+        pred = int(fraud_prob >= threshold)
+
+        st.subheader("Prediction Result")
+        if pred == 1:
+            st.error("Fraud Transaction Detected")
+        else:
+            st.success("Legit Transaction")
+
+        st.metric("Fraud Probability", f"{fraud_prob:.4f}")
+        st.metric("Predicted Class", str(pred))
+
+
+if __name__ == "__main__":
+    main()
