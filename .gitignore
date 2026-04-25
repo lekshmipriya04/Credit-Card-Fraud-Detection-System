@@ -1,2 +1,8 @@
 # Ignore the large data folder
 data/*
+
+# Preprocessed data 
+notebooks/preprocessed_data/
+notebooks/preprocessed_data/*.pkl
+preprocessed_data/
+preprocessed_data/*.pkl
