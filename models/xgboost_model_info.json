@@ -1,0 +1,31 @@
+{
+    "model_name": "XGBoost Classifier",
+    "model_type": "gradient-boosting",
+    "validation_accuracy": 0.9725674806109662,
+    "validation_precision": 0.6587273373622468,
+    "validation_recall": 0.4483426082748609,
+    "validation_f1": 0.5335444860351282,
+    "validation_roc_auc": 0.8871944657425108,
+    "validation_pr_auc": 0.5424223959948222,
+    "total_cost": 228960.0,
+    "hyperparameters": {
+        "max_depth": 6,
+        "learning_rate": 0.1,
+        "n_estimators": 150,
+        "scale_pos_weight": 1.0,
+        "subsample": 0.8,
+        "colsample_bytree": 0.8,
+        "tree_method": "hist",
+        "early_stopping_rounds": 10
+    },
+    "feature_count": 387,
+    "training_samples": 911804,
+    "validation_samples": 118108,
+    "test_samples": 506691,
+    "confusion_matrix": {
+        "tn": 113015,
+        "fp": 960,
+        "fn": 2280,
+        "tp": 1853
+    }
+}
