@@ -1,0 +1,20 @@
+{
+    "model_name": "Neural Network (Balanced)",
+    "accuracy": 0.9340010837538524,
+    "precision": 0.2510875475802066,
+    "recall": 0.4468908782966368,
+    "f1": 0.3215249368961616,
+    "roc_auc": 0.6936433226710028,
+    "threshold": 0.5800000000000001,
+    "confusion_matrix": {
+        "tn": 108466,
+        "fp": 5509,
+        "fn": 2286,
+        "tp": 1847
+    },
+    "cost_analysis": {
+        "false_negative_cost": 100,
+        "false_positive_cost": 1,
+        "total_cost": 234109.0
+    }
+}
