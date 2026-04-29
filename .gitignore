@@ -1,6 +1,8 @@
 # Ignore the large data folder
 data/*
 
+*.pkl
+
 # Preprocessed data 
 notebooks/preprocessed_data/
 notebooks/preprocessed_data/*.pkl
