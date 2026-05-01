@@ -1,0 +1,6 @@
+[server]
+# Maximum size per uploaded file (in MB). Default is 200.
+maxUploadSize = 1024
+
+# Maximum websocket message size (in MB). Keep aligned for large uploads.
+maxMessageSize = 1024
