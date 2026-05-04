@@ -47,6 +47,7 @@ from src.config import (
     AMT_CAP_PERCENTILE,
     MISSING_THRESHOLD,
     SCALER_PATH,
+    MODEL_DIR,
     LABEL_ENCODERS_PATH,
     FEATURE_NAMES_PATH,
     DT_MODEL_PATH,
@@ -145,7 +146,36 @@ def safe_label_encode(series: pd.Series, encoder) -> pd.Series:
 
 
 def preprocess_for_model(raw_df: pd.DataFrame):
-    scaler = joblib.load(SCALER_PATH)
+    # Ensure scaler exists; in some deployment environments the mounted
+    # `models/` directory may be empty or in a different location. Try a
+    # few reasonable fallbacks and provide a helpful error if nothing found.
+    scaler_path = Path(SCALER_PATH)
+    if not scaler_path.exists():
+        print(f"Warning: expected scaler not found at {scaler_path}")
+        # Try to find any plausible scaler-like artifact in the models dir
+        candidates = []
+        if MODEL_DIR.exists():
+            candidates = list(MODEL_DIR.glob("*scaler*.pkl")) + list(MODEL_DIR.glob("*minmax*.pkl"))
+            # fallback: any pkl in models
+            if not candidates:
+                candidates = list(MODEL_DIR.glob("*.pkl"))
+
+        if candidates:
+            chosen = candidates[0]
+            print(f"Using fallback scaler artifact: {chosen.name}")
+            scaler_path = chosen
+        else:
+            available = [p.name for p in MODEL_DIR.iterdir()] if MODEL_DIR.exists() else []
+            raise FileNotFoundError(
+                f"Missing scaler file. Expected: {SCALER_PATH}\n"
+                f"Files found in {MODEL_DIR}: {available}\n"
+                "Fix: ensure the pretrained artifacts (scaler.pkl, label_encoders.pkl, feature_names.pkl, model files)\n"
+                "are present in the `models/` directory inside the runtime/container, or mount the project root so\n"
+                "that `models/scaler.pkl` is accessible. You can regenerate these by running the preprocessing and\n"
+                "training notebooks (preprocessing.ipynb, 02_train_decision_tree.ipynb, 03_train_xgboost.ipynb)."
+            )
+
+    scaler = joblib.load(scaler_path)
     label_encoders = joblib.load(LABEL_ENCODERS_PATH)
     feature_names: List[str] = joblib.load(FEATURE_NAMES_PATH)
 
