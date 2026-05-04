@@ -1,5 +1,10 @@
 # 🚀 Credit Card Fraud Detection System
 
+![Python](https://img.shields.io/badge/Python-3.9-blue)
+![ML](https://img.shields.io/badge/Machine%20Learning-Project-green)
+![DL](https://img.shields.io/badge/Deep%20Learning-HGNN-orange)
+![Deployment](https://img.shields.io/badge/Deployed-Streamlit-brightgreen)
+
 A production-ready **end-to-end machine learning and deep learning system** for detecting fraudulent credit card transactions in real time. This project integrates advanced imbalance handling, multiple model architectures (ML + DL), modular pipelines, and a deployed Streamlit web application.
 
 🔗 **Live App:**  
