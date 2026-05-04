@@ -31,7 +31,8 @@ os.environ.setdefault("MKL_NUM_THREADS", "1")
 os.environ.setdefault("KMP_DUPLICATE_LIB_OK", "TRUE")
 
 # Ensure local package imports (src/*) resolve consistently in cloud/runtime environments.
-PROJECT_ROOT = Path(__file__).resolve().parent
+# Ensure project root (the parent of `src`) is on sys.path so `import src.*` works
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
