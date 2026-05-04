@@ -1,10 +1,10 @@
-# Ignore the large data folder
-data/*
+# Ignore large preprocessed data files
+data/preprocessed_data.pkl
+notebook/preprocessed_data.pkl
 
-*.pkl
+# Ignore other large datasets
+data/*.csv
+!data/test_identity.csv  # Keep this if your app needs it to expand features
 
-# Preprocessed data 
-notebooks/preprocessed_data/
-notebooks/preprocessed_data/*.pkl
-preprocessed_data/
-preprocessed_data/*.pkl
+# Specifically ignore the massive preprocessed file in models
+models/preprocessed_data.pkl
