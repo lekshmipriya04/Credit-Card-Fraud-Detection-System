@@ -106,15 +106,13 @@ fraud-detection/
 
 ---
 
-### 🔹 Models Implemented
+## 🧠 Model Comparison
 
-#### ✅ Machine Learning
-- Decision Tree  
-- XGBoost  
-
-#### ✅ Deep Learning
-- **HGNN (Hybrid Graph Neural Network)**  
-- Captures complex and non-linear fraud patterns  
+| Model            | Type                                | Imbalance Strategy                          |
+|------------------|-------------------------------------|---------------------------------------------|
+| Decision Tree    | Interpretable baseline              | `class_weight='balanced'` + SMOTE           |
+| XGBoost          | Gradient boosting                   | `scale_pos_weight` + SMOTE                  |
+| HGNN-ATT-TD ⭐   | Heterogeneous Graph Neural Network  | Focal Loss + temporal decay                 |
 
 ---
 
