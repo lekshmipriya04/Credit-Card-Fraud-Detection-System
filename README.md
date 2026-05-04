@@ -88,3 +88,84 @@ fraud-detection/
 ├── outputs/
 
 ```
+
+---
+
+## ⚙️ Model & Methodology
+
+### 🔹 Preprocessing
+
+- Data cleaning and validation  
+- Feature scaling (`Amount`, `Time`)  
+- Dimensionality reduction (PCA)  
+- Handling imbalance using:
+  - **SMOTE**
+  - **ADASYN**
+
+---
+
+### 🔹 Models Implemented
+
+#### ✅ Machine Learning
+- Decision Tree  
+- XGBoost  
+
+#### ✅ Deep Learning
+- **HGNN (Hybrid Graph Neural Network)**  
+- Captures complex and non-linear fraud patterns  
+
+---
+
+### 🔹 Training
+
+- Modular pipeline-based training  
+- Balanced dataset using resampling techniques  
+- Hyperparameter tuning for performance optimization  
+
+---
+
+### 🔹 Evaluation
+
+- Accuracy  
+- Precision  
+- Recall  
+- F1-Score  
+- Confusion Matrix  
+- ROC-AUC / PR-AUC  
+
+> 🚨 Focus on **Recall** to minimize undetected fraud cases  
+
+---
+
+## 📈 Results
+
+- XGBoost and HGNN outperform baseline models  
+- High detection capability on imbalanced data  
+- Strong balance between:
+  - High **recall**
+  - Controlled **false positives**
+
+---
+
+## 🌐 Web Application
+
+An interactive **Streamlit app** is included for real-time predictions.
+
+### ✨ Features
+
+- User-friendly transaction input  
+- Instant fraud prediction  
+- Clean and responsive UI  
+
+👉 **Try it here:**  
+https://credit-card-fraud-detection-system-hyyu5xm7adgwjhhweyg8gt.streamlit.app/
+
+---
+
+## 💻 How to Run Locally
+
+### 1. Clone Repository
+
+```bash
+git clone https://github.com/lekshmipriya04/Credit-Card-Fraud-Detection-System.git
+cd Credit-Card-Fraud-Detection-System
