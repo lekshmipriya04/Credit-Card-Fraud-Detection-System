@@ -166,13 +166,13 @@ https://credit-card-fraud-detection-system-hyyu5xm7adgwjhhweyg8gt.streamlit.app/
 
 ### 🔹 Main Interface
 
-![App UI](images/UI.png)
+![App UI](images/UI.jpeg)
 
 ---
 
 ### 🔹 Prediction Results
 
-![Prediction Results](images/DEMO.png)
+![Prediction Results](images/DEMO.jpeg)
 
 ---
 
