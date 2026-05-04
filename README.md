@@ -52,3 +52,39 @@ This project aims to build a scalable and accurate system that detects fraudulen
 - **Challenge:** Highly imbalanced dataset  
 
 ---
+
+## 📁 Project Structure
+
+```
+fraud-detection/
+│
+├── README.md
+├── .gitignore
+├── requirements.txt
+│
+├── app.py                         # Streamlit web interface
+├── predict_models_options.py      # CLI batch prediction script
+│
+├── src/
+│   ├── config.py                  # Paths, hyperparameters, constants
+│   ├── utils.py                   # Logging, helpers
+│   ├── data_loader.py             # Load dataset
+│   ├── feature_engineering.py     # PCA, feature selection
+│   ├── preprocessing.py           # Cleaning & splitting
+│   ├── models.py                  # ML & DL models
+│   ├── training.py                # Training pipeline
+│   ├── evaluation.py              # Metrics
+│   ├── hgnn_utils.py              # Graph utilities
+│
+├── notebooks/
+│   ├── preprocessing.ipynb
+│   ├── 02_train_decision_tree.ipynb
+│   ├── 03_train_xgboost.ipynb
+│   ├── 04_train_hgnn.ipynb
+│   ├── 05_evaluation.ipynb
+│
+├── data/
+├── models/
+├── outputs/
+
+```
