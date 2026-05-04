@@ -363,9 +363,15 @@ def predict_models_subprocess(raw_df: pd.DataFrame, selected_models: List[str]) 
 
         for model_name in selected_models:
             output_path = os.path.join(tmpdir, f"pred_{model_name}.csv")
+            # script lives under src/ in the project root
+            script_path = os.path.join(project_root, "src", "predict_models_options.py")
+            if not os.path.exists(script_path):
+                failures.append(f"{model_name}: missing script {script_path}")
+                continue
+
             cmd = [
                 sys.executable,
-                "predict_models_options.py",
+                script_path,
                 "--input",
                 input_path,
                 "--model",
@@ -388,7 +394,9 @@ def predict_models_subprocess(raw_df: pd.DataFrame, selected_models: List[str]) 
             )
 
             if proc.returncode != 0:
-                failures.append(f"{model_name}: exit {proc.returncode}")
+                # include stderr for diagnostics
+                err = (proc.stderr or "").strip()
+                failures.append(f"{model_name}: exit {proc.returncode} - {err}")
                 continue
             if not os.path.exists(output_path):
                 failures.append(f"{model_name}: no output generated")
