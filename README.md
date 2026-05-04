@@ -7,9 +7,6 @@
 
 A production-ready **end-to-end machine learning and deep learning system** for detecting fraudulent credit card transactions in real time. This project integrates advanced imbalance handling, multiple model architectures (ML + DL), modular pipelines, and a deployed Streamlit web application.
 
-🔗 **Live App:**  
-https://credit-card-fraud-detection-system-hyyu5xm7adgwjhhweyg8gt.streamlit.app/
-
 ---
 
 ## 📌 Problem Statement
