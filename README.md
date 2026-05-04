@@ -170,12 +170,6 @@ https://credit-card-fraud-detection-system-hyyu5xm7adgwjhhweyg8gt.streamlit.app/
 
 ---
 
-### 🔹 Prediction Results
-
-![Prediction Results](images/DEMO.jpeg)
-
----
-
 ## 💻 How to Run Locally
 
 ### 1. Clone Repository
