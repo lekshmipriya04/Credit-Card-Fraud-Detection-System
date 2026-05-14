@@ -1,3 +1,74 @@
+# Credit Card Fraud Detection System
+
+A reproducible pipeline for credit card fraud detection using feature engineering, classical ML, and graph neural networks. This repository contains data preprocessing, training notebooks, model artifacts, and utilities to run inference.
+
+## Key features
+- Data loading and preprocessing scripts in `src/`
+- Example training notebooks (Decision Tree, XGBoost, HGNN) in `notebook/`
+- Pretrained model artifacts in `models/`
+- Prediction and evaluation utilities in `src/`
+
+## Dataset
+Place the CSV files in the `data/` folder. This project includes train and test CSVs used in the notebooks:
+
+- `data/train_transaction.csv`, `data/train_identity.csv`
+- `data/test_transaction.csv`, `data/test_identity.csv`
+
+## Repository structure
+
+- [app.py](app.py) — optional entry-point for inference or quick experiments
+- [requirements.txt](requirements.txt) — Python dependencies
+- [notebook/02_train_decision_tree.ipynb](notebook/02_train_decision_tree.ipynb)
+- [notebook/03_train_xgboost.ipynb](notebook/03_train_xgboost.ipynb)
+- [notebook/04_train_hgnn.ipynb](notebook/04_train_hgnn.ipynb)
+- [src/](src/) — core Python modules (data loading, preprocessing, models, training, utils)
+- [models/](models/) — saved model artifacts (e.g. `hgnn_att_td.pt`, `xgboost_booster.json`)
+- [outputs/](outputs/) — generated outputs and temporary predictions
+
+## Quickstart
+
+1. Create and activate a virtual environment:
+
+```bash
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+# macOS / Linux
+source .venv/bin/activate
+```
+
+2. Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Note: If you plan to run the HGNN notebooks and use TensorFlow on Windows, use Python 3.12 (see workspace notes) — TensorFlow may not be available on newer Windows Python versions.
+
+3. Run a notebook or the training scripts. Example: open `notebook/02_train_decision_tree.ipynb` and run the cells.
+
+## Training & Evaluation
+
+- Notebooks under `notebook/` demonstrate preprocessing, feature engineering, training, and evaluation for different models.
+- Use `src/training.py` and `src/evaluation.py` for scriptable training and metrics computation.
+
+## Models
+
+- Trained model artifacts are stored in the `models/` folder. You can load the XGBoost model from `models/xgboost_booster.json` or PyTorch HGNN models from `.pt` files.
+
+## Outputs
+
+- Prediction examples and evaluation outputs are saved to `outputs/` (e.g. `tmp_predictions.csv`).
+
+## Contributing
+
+Feel free to open issues or pull requests. Suggested next steps:
+
+- Add a `LICENSE` if you intend to publish the project.
+- Add automated tests for data-loading and preprocessing functions in `src/`.
+
+## Contact
+For questions, run the notebooks or open an issue in the repository.
 # 🚀 Credit Card Fraud Detection System
 
 ![Python](https://img.shields.io/badge/Python-3.9-blue)
@@ -157,9 +228,8 @@ An interactive **Streamlit app** is included for real-time predictions.
 - Instant fraud prediction  
 - Clean and responsive UI  
 
-👉 **Try it here:**  
+👉 **Live Demo:**  
 https://credit-card-fraud-detection-system-hyyu5xm7adgwjhhweyg8gt.streamlit.app/
-
 ---
 
 ## 📸 App Preview
