@@ -14,16 +14,6 @@ Place the CSV files in the `data/` folder. This project includes train and test 
 - `data/train_transaction.csv`, `data/train_identity.csv`
 - `data/test_transaction.csv`, `data/test_identity.csv`
 
-## Repository structure
-
-- [app.py](app.py) — optional entry-point for inference or quick experiments
-- [requirements.txt](requirements.txt) — Python dependencies
-- [notebook/02_train_decision_tree.ipynb](notebook/02_train_decision_tree.ipynb)
-- [notebook/03_train_xgboost.ipynb](notebook/03_train_xgboost.ipynb)
-- [notebook/04_train_hgnn.ipynb](notebook/04_train_hgnn.ipynb)
-- [src/](src/) — core Python modules (data loading, preprocessing, models, training, utils)
-- [models/](models/) — saved model artifacts (e.g. `hgnn_att_td.pt`, `xgboost_booster.json`)
-- [outputs/](outputs/) — generated outputs and temporary predictions
 
 
 
