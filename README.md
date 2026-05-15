@@ -22,9 +22,9 @@ An end-to-end **Machine Learning and Deep Learning based Fraud Detection System*
 
 # 👥 Team Members
 
-- Lekshmipriya  
-- Ashnaa  
-- *Add remaining team members here*  
+- M.R Lekshmipriya  
+- Ashna Jabin Nk 
+- Hemalakshmi R
 
 ---
 
