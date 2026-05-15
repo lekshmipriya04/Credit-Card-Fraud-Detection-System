@@ -25,18 +25,6 @@ Place the CSV files in the `data/` folder. This project includes train and test 
 - [models/](models/) — saved model artifacts (e.g. `hgnn_att_td.pt`, `xgboost_booster.json`)
 - [outputs/](outputs/) — generated outputs and temporary predictions
 
-## Quickstart
-
-1. Create and activate a virtual environment:
-
-```bash
-python -m venv .venv
-# Windows
-.venv\Scripts\activate
-# macOS / Linux
-source .venv/bin/activate
-```
-
 
 
 
