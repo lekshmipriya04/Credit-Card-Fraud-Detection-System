@@ -157,7 +157,7 @@ An interactive **Streamlit app** is included for real-time predictions.
 - Instant fraud prediction  
 - Clean and responsive UI  
 
-👉 **Live Demo:**  
+👉 Live Demo:
 https://credit-card-fraud-detection-system-hyyu5xm7adgwjhhweyg8gt.streamlit.app/
 ---
 
