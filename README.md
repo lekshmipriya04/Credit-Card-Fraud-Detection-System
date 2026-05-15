@@ -37,20 +37,7 @@ python -m venv .venv
 source .venv/bin/activate
 ```
 
-2. Install dependencies:
 
-```bash
-pip install -r requirements.txt
-```
-
-Note: If you plan to run the HGNN notebooks and use TensorFlow on Windows, use Python 3.12 (see workspace notes) — TensorFlow may not be available on newer Windows Python versions.
-
-3. Run a notebook or the training scripts. Example: open `notebook/02_train_decision_tree.ipynb` and run the cells.
-
-## Training & Evaluation
-
-- Notebooks under `notebook/` demonstrate preprocessing, feature engineering, training, and evaluation for different models.
-- Use `src/training.py` and `src/evaluation.py` for scriptable training and metrics computation.
 
 
 # 🚀 Credit Card Fraud Detection System
