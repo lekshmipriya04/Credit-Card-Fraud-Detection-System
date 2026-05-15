@@ -2,19 +2,6 @@
 
 A reproducible pipeline for credit card fraud detection using feature engineering, classical ML, and graph neural networks. This repository contains data preprocessing, training notebooks, model artifacts, and utilities to run inference.
 
-## Key features
-- Data loading and preprocessing scripts in `src/`
-- Example training notebooks (Decision Tree, XGBoost, HGNN) in `notebook/`
-- Pretrained model artifacts in `models/`
-- Prediction and evaluation utilities in `src/`
-
-## Dataset
-Place the CSV files in the `data/` folder. This project includes train and test CSVs used in the notebooks:
-
-- `data/train_transaction.csv`, `data/train_identity.csv`
-- `data/test_transaction.csv`, `data/test_identity.csv`
-
-
 
 
 
