@@ -1,6 +1,6 @@
 # 🚀 Credit Card Fraud Detection System
 
-![Python](https://img.shields.io/badge/Python-3.9-blue)
+![Python](https://img.shields.io/badge/Python-3.12-blue)
 ![Machine Learning](https://img.shields.io/badge/Machine%20Learning-Project-green)
 ![Deep Learning](https://img.shields.io/badge/Deep%20Learning-HGNN-orange)
 ![Deployment](https://img.shields.io/badge/Deployment-Streamlit-brightgreen)
