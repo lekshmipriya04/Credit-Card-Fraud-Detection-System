@@ -1,178 +1,374 @@
 # 🚀 Credit Card Fraud Detection System
 
 ![Python](https://img.shields.io/badge/Python-3.9-blue)
-![ML](https://img.shields.io/badge/Machine%20Learning-Project-green)
-![DL](https://img.shields.io/badge/Deep%20Learning-HGNN-orange)
-![Deployment](https://img.shields.io/badge/Deployed-Streamlit-brightgreen)
+![Machine Learning](https://img.shields.io/badge/Machine%20Learning-Project-green)
+![Deep Learning](https://img.shields.io/badge/Deep%20Learning-HGNN-orange)
+![Deployment](https://img.shields.io/badge/Deployment-Streamlit-brightgreen)
 
-A production-ready **end-to-end machine learning and deep learning system** for detecting fraudulent credit card transactions in real time. This project integrates advanced imbalance handling, multiple model architectures (ML + DL), modular pipelines, and a deployed Streamlit web application.
-
----
-
-## 📌 Problem Statement
-
-Credit card fraud detection is challenging due to:
-
-- Extremely **imbalanced datasets** (fraud < 1%)
-- Continuously evolving fraud patterns
-- Need for **real-time prediction systems**
-
-This project aims to build a scalable and accurate system that detects fraudulent transactions while minimizing false positives.
+An end-to-end **Machine Learning and Deep Learning based Fraud Detection System** designed to identify fraudulent credit card transactions in real time. The project combines advanced preprocessing, imbalance handling techniques, multiple predictive models, and a deployed Streamlit application for interactive predictions.
 
 ---
 
-## 🎯 Objectives
+# 📚 Course Details
 
-- Develop robust ML and DL models for fraud detection  
-- Handle severe class imbalance using advanced techniques  
-- Compare multiple models for performance optimization  
-- Build a real-time prediction system  
-- Deploy an interactive web interface  
-
----
-
-## 🛠️ Tech Stack
-
-- **Language:** Python  
-- **Libraries:** Pandas, NumPy, Scikit-learn  
-- **Models:** Decision Tree, XGBoost, HGNN (Deep Learning)  
-- **Imbalance Handling:** SMOTE, ADASYN  
-- **Visualization:** Matplotlib, Seaborn  
-- **Deployment:** Streamlit  
-- **Environment:** Jupyter Notebook  
+| Field | Details |
+|---|---|
+| **Project Title** | Credit Card Fraud Detection System |
+| **Course** | Machine Learning Laboratory |
+| **Domain** | Financial Fraud Detection |
+| **Technologies Used** | Python, Scikit-learn, XGBoost, Deep Learning, Streamlit |
 
 ---
 
-## 📊 Dataset
+# 👥 Team Members
 
-- **Source:** Kaggle Credit Card Fraud Dataset  
-- **Description:**
-  - European cardholder transactions  
-  - PCA-transformed features (`V1–V28`)  
-  - Includes `Time`, `Amount`, and `Class` (0 = Legit, 1 = Fraud)  
-
-- **Challenge:** Highly imbalanced dataset  
+- Lekshmipriya  
+- Ashnaa  
+- *Add remaining team members here*  
 
 ---
 
-## 📁 Project Structure
+# 📌 Problem Statement
 
-```
-fraud-detection/
+Credit card fraud has become a major challenge in the digital payment ecosystem. Financial institutions process millions of transactions daily, making it difficult to detect fraudulent activities manually.
+
+The major challenges include:
+
+- Extremely imbalanced datasets where fraudulent transactions are very rare
+- Evolving fraud patterns and attack strategies
+- Need for fast and accurate real-time detection
+- Reducing false positives while maintaining high fraud recall
+
+This project aims to develop a scalable and intelligent fraud detection system capable of accurately identifying fraudulent transactions using Machine Learning and Deep Learning approaches.
+
+---
+
+# 🎯 Project Objectives
+
+- Build accurate fraud detection models using ML and DL techniques
+- Handle severe class imbalance effectively
+- Compare multiple models for performance evaluation
+- Minimize false negatives and maximize fraud detection recall
+- Deploy a real-time fraud prediction web application
+- Create a modular and production-ready pipeline
+
+---
+
+# 📊 Dataset Description
+
+## 🔹 Dataset Source
+
+- **Dataset:** IEEE-CIS Fraud Detection Dataset  
+- **Source:** Kaggle  
+
+👉 Dataset Link:  
+https://www.kaggle.com/competitions/ieee-fraud-detection/data
+
+---
+
+## 🔹 Dataset Overview
+
+The dataset contains online transaction records collected from real-world e-commerce payment systems.
+
+### Dataset Characteristics
+
+| Attribute | Description |
+|---|---|
+| **Transactions** | Online payment transactions |
+| **Target Variable** | `isFraud` |
+| **Class Labels** | `0 = Legitimate`, `1 = Fraudulent` |
+| **Feature Types** | Numerical, Categorical, Transactional |
+| **Challenge** | Highly imbalanced fraud distribution |
+
+---
+
+## 🔹 Important Features
+
+- `TransactionID`
+- `TransactionAmt`
+- `ProductCD`
+- `card1 – card6`
+- `addr1`, `addr2`
+- `P_emaildomain`
+- `R_emaildomain`
+- `DeviceType`
+- `DeviceInfo`
+- Transaction timing features
+- Identity-related attributes
+
+---
+
+## 🔹 Class Distribution
+
+The dataset is highly imbalanced:
+
+- Legitimate transactions form the majority
+- Fraudulent transactions represent only a very small percentage
+
+This imbalance makes fraud detection a challenging classification problem.
+
+---
+
+# 🛠️ Technology Stack
+
+| Category | Technologies |
+|---|---|
+| **Programming Language** | Python |
+| **Data Processing** | Pandas, NumPy |
+| **Visualization** | Matplotlib, Seaborn |
+| **Machine Learning** | Scikit-learn, XGBoost |
+| **Deep Learning** | HGNN Architecture |
+| **Imbalance Handling** | SMOTE, ADASYN |
+| **Deployment** | Streamlit |
+| **Development Environment** | Jupyter Notebook |
+
+---
+
+# 📁 Project Structure
+
+```bash
+Credit-Card-Fraud-Detection-System/
 │
 ├── README.md
-├── .gitignore
 ├── requirements.txt
+├── .gitignore
 │
-├── app.py                         # Streamlit web interface
-├── predict_models_options.py      # CLI batch prediction script
+├── app.py
+├── predict_models_options.py
 │
 ├── src/
-│   ├── config.py                  # Paths, hyperparameters, constants
-│   ├── utils.py                   # Logging, helpers
-│   ├── data_loader.py             # Load dataset
-│   ├── feature_engineering.py     # PCA, feature selection
-│   ├── preprocessing.py           # Cleaning & splitting
-│   ├── models.py                  # ML & DL models
-│   ├── training.py                # Training pipeline
-│   ├── evaluation.py              # Metrics
-│   ├── hgnn_utils.py              # Graph utilities
+│   ├── config.py
+│   ├── data_loader.py
+│   ├── preprocessing.py
+│   ├── feature_engineering.py
+│   ├── models.py
+│   ├── training.py
+│   ├── evaluation.py
+│   ├── utils.py
+│   └── hgnn_utils.py
 │
 ├── notebooks/
 │   ├── preprocessing.ipynb
 │   ├── 02_train_decision_tree.ipynb
 │   ├── 03_train_xgboost.ipynb
 │   ├── 04_train_hgnn.ipynb
-│   ├── 05_evaluation.ipynb
+│   └── 05_evaluation.ipynb
 │
 ├── data/
 ├── models/
 ├── outputs/
-
+└── images/
 ```
 
 ---
 
-## ⚙️ Model & Methodology
+# 🔄 Project Methodology
 
-### 🔹 Preprocessing
+## 1️⃣ Data Collection
 
-- Data cleaning and validation  
-- Feature scaling (`Amount`, `Time`)  
-- Dimensionality reduction (PCA)  
-- Handling imbalance using:
-  - **SMOTE**
-  - **ADASYN**
+- Collected fraud transaction dataset from Kaggle
+- Loaded and validated transactional records
 
 ---
 
-## 🧠 Model Comparison
+## 2️⃣ Data Preprocessing
 
-| Model            | Type                                | Imbalance Strategy                          |
-|------------------|-------------------------------------|---------------------------------------------|
-| Decision Tree    | Interpretable baseline              | `class_weight='balanced'` + SMOTE           |
-| XGBoost          | Gradient boosting                   | `scale_pos_weight` + SMOTE                  |
-| HGNN-ATT-TD ⭐   | Heterogeneous Graph Neural Network  | Focal Loss + temporal decay                 |
-
----
-
-### 🔹 Training
-
-- Modular pipeline-based training  
-- Balanced dataset using resampling techniques  
-- Hyperparameter tuning for performance optimization  
+- Missing value handling
+- Data cleaning and validation
+- Feature scaling
+- Encoding categorical variables
+- Feature engineering
+- Dimensionality reduction techniques
 
 ---
 
-### 🔹 Evaluation
+## 3️⃣ Handling Imbalanced Data
 
-- Accuracy  
-- Precision  
-- Recall  
-- F1-Score  
-- Confusion Matrix  
-- ROC-AUC / PR-AUC  
+Advanced imbalance handling techniques were applied:
 
-> 🚨 Focus on **Recall** to minimize undetected fraud cases  
+- **SMOTE (Synthetic Minority Oversampling Technique)**
+- **ADASYN (Adaptive Synthetic Sampling)**
+
+These methods improved fraud detection capability by balancing class distribution.
 
 ---
 
-## 📈 Results
+# 🧠 Model Development
 
-- XGBoost and HGNN outperform baseline models  
-- High detection capability on imbalanced data  
-- Strong balance between:
-  - High **recall**
-  - Controlled **false positives**
+## 🔹 Decision Tree
+
+- Baseline interpretable model
+- Used balanced class weighting
+- Combined with SMOTE
 
 ---
 
-## 🌐 Web Application
+## 🔹 XGBoost
 
-An interactive **Streamlit app** is included for real-time predictions.
+- Gradient boosting-based ensemble model
+- Optimized for imbalanced classification
+- High precision and recall performance
 
-### ✨ Features
+---
 
-- User-friendly transaction input  
-- Instant fraud prediction  
-- Clean and responsive UI  
+## 🔹 HGNN-ATT-TD ⭐
 
-👉 Live Demo:
+Heterogeneous Graph Neural Network with:
+
+- Attention mechanisms
+- Temporal decay modeling
+- Focal loss optimization
+- Graph-based fraud relationship learning
+
+---
+
+# 📈 Model Evaluation
+
+The models were evaluated using:
+
+- Accuracy
+- Precision
+- Recall
+- F1-Score
+- ROC-AUC
+- PR-AUC
+- Confusion Matrix
+
+---
+
+# 📊 Results Summary
+
+| Model | Accuracy | Precision | Recall | F1-Score |
+|---|---|---|---|---|
+| Decision Tree | High | Moderate | Moderate | Moderate |
+| XGBoost | Very High | High | High | High |
+| HGNN-ATT-TD | Best Performance | High | Very High | Very High |
+
+---
+
+## 🔹 Key Findings
+
+- XGBoost significantly outperformed baseline models
+- HGNN achieved superior fraud detection capability
+- High recall reduced undetected fraud cases
+- Resampling techniques improved minority class learning
+- Deep learning models captured complex fraud relationships effectively
+
+---
+
+# 🌐 Streamlit Web Application
+
+An interactive Streamlit web application was developed for real-time fraud prediction.
+
+## ✨ Features
+
+- User-friendly transaction input interface
+- Instant fraud prediction
+- Real-time inference
+- Clean and responsive UI
+- Easy deployment and accessibility
+
+---
+
+# 🔗 Live Deployment
+
+👉 Live Streamlit App:  
 https://credit-card-fraud-detection-system-hyyu5xm7adgwjhhweyg8gt.streamlit.app/
----
-
-## 📸 App Preview
-
-### 🔹 Main Interface
-
-![App UI](images/UI.jpeg)
 
 ---
 
-## 💻 How to Run Locally
+# 📸 Application Screenshots
 
-### 1. Clone Repository
+## 🔹 Main Interface
+
+![Application UI](images/UI.jpeg)
+
+---
+
+# 💻 Installation & Setup Guide
+
+## 1️⃣ Clone the Repository
 
 ```bash
 git clone https://github.com/lekshmipriya04/Credit-Card-Fraud-Detection-System.git
+
 cd Credit-Card-Fraud-Detection-System
+```
+
+---
+
+## 2️⃣ Create Virtual Environment
+
+```bash
+python -m venv venv
+```
+
+### Activate Environment
+
+#### Windows
+
+```bash
+venv\Scripts\activate
+```
+
+#### Linux / macOS
+
+```bash
+source venv/bin/activate
+```
+
+---
+
+## 3️⃣ Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## 4️⃣ Download Dataset
+
+Download the dataset from Kaggle and place it inside the `data/` folder.
+
+Dataset Link:  
+https://www.kaggle.com/competitions/ieee-fraud-detection/data
+
+---
+
+## 5️⃣ Run the Streamlit Application
+
+```bash
+streamlit run app.py
+```
+
+---
+
+# 📌 Future Enhancements
+
+- Real-time streaming fraud detection
+- Explainable AI integration
+- Advanced ensemble learning
+- Cloud deployment support
+- Continuous fraud pattern learning
+- API integration for banking systems
+
+---
+
+# ✅ Conclusion
+
+This project demonstrates a complete fraud detection pipeline integrating Machine Learning and Deep Learning techniques for highly imbalanced financial datasets. The system successfully achieves high fraud detection performance while maintaining scalability and usability through a deployed Streamlit application.
+
+---
+
+# 📜 License
+
+This project is developed for educational and academic purposes.
+
+---
+
+# ⭐ Acknowledgement
+
+- Kaggle IEEE-CIS Fraud Detection Competition
+- Open-source ML and DL communities
+- Streamlit deployment platform
