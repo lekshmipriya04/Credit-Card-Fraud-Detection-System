@@ -52,23 +52,7 @@ Note: If you plan to run the HGNN notebooks and use TensorFlow on Windows, use P
 - Notebooks under `notebook/` demonstrate preprocessing, feature engineering, training, and evaluation for different models.
 - Use `src/training.py` and `src/evaluation.py` for scriptable training and metrics computation.
 
-## Models
 
-- Trained model artifacts are stored in the `models/` folder. You can load the XGBoost model from `models/xgboost_booster.json` or PyTorch HGNN models from `.pt` files.
-
-## Outputs
-
-- Prediction examples and evaluation outputs are saved to `outputs/` (e.g. `tmp_predictions.csv`).
-
-## Contributing
-
-Feel free to open issues or pull requests. Suggested next steps:
-
-- Add a `LICENSE` if you intend to publish the project.
-- Add automated tests for data-loading and preprocessing functions in `src/`.
-
-## Contact
-For questions, run the notebooks or open an issue in the repository.
 # 🚀 Credit Card Fraud Detection System
 
 ![Python](https://img.shields.io/badge/Python-3.9-blue)
