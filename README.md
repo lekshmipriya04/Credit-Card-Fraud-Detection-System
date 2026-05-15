@@ -1,10 +1,3 @@
-# Credit Card Fraud Detection System
-
-A reproducible pipeline for credit card fraud detection using feature engineering, classical ML, and graph neural networks. This repository contains data preprocessing, training notebooks, model artifacts, and utilities to run inference.
-
-
-
-
 # 🚀 Credit Card Fraud Detection System
 
 ![Python](https://img.shields.io/badge/Python-3.9-blue)
